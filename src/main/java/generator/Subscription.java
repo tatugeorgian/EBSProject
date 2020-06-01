@@ -1,6 +1,5 @@
 package generator;
 
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +38,7 @@ public class Subscription {
     public boolean hasEq(String fieldName) {
         for (Filter filter : filters) {
             if (filter.getFieldName().equals(fieldName) &&
-                filter.getOperator() == Operator.EQ) {
+                    filter.getOperator() == Operator.EQ) {
                 return true;
             }
         }

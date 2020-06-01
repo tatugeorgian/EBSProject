@@ -17,41 +17,34 @@ public class Subscriber extends BaseRichSpout {
     private SpoutOutputCollector collector;
     private List<Subscription> subscriptions;
     private int subscriptionsIndex;
-    private List<Integer> tasks;
+    private String _id;
+    public static int subTotalCount;
+
+    Subscriber(String id){
+        _id = id;
+    }
 
     @Override
     public void open(Map map, TopologyContext topologyContext, SpoutOutputCollector spoutOutputCollector) {
         collector = spoutOutputCollector;
+        subscriptionsIndex = 0;
+
         Generator generator = new GeneratorImpl();
         Date endDate = new Date(130, 0, 1); // 1 jan 2030
         subscriptions = generator.generateSubscriptions(new SubscriptionGenerationParams(new PublicationGenerationParams(),
                 endDate));
-        tasks = topologyContext.getComponentTasks("broker");
+        subTotalCount = subscriptions.size();
     }
 
     @Override
     public void nextTuple() {
-        Subscription nextSubscription = subscriptions.get(subscriptionsIndex);
-        List<Filter> filters = nextSubscription.getFilters();
-
-        collector.emit(new Values(filters));
-        subscriptionsIndex++;
-        collector.emitDirect(tasks.get(0), "secondary", new Values(subscriptionsIndex));
-        if (subscriptionsIndex == subscriptions.size()) {
-            subscriptionsIndex = 0;
-        }
-
-        try {
-            Thread.sleep(1);
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        if (subscriptionsIndex < subTotalCount) {
+            collector.emit(new Values(subscriptions.get(subscriptionsIndex++).getFilters(), _id));
         }
     }
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) {
-        outputFieldsDeclarer.declare(new Fields("filters"));
-        outputFieldsDeclarer.declareStream("secondary", true, new Fields("subCount"));
+        outputFieldsDeclarer.declare(new Fields("filters", "terminal_id"));
     }
 }

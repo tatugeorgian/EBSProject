@@ -6,8 +6,7 @@ public enum Operator {
     L("<"),
     LEQ("<="),
     EQ("="),
-    NEQ("!=")
-    ;
+    NEQ("!=");
 
     private String operatorString;
 

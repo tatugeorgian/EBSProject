@@ -54,12 +54,12 @@ public class GeneratorImpl implements Generator {
     public List<Subscription> generateSubscriptions(SubscriptionGenerationParams params) {
         List<Subscription> subscriptions = new ArrayList<>();
 
-        int companyTotal = (int)(params.getCompanyPercentage() * params.getSubscriptionCount());
-        int stockValueTotal = (int)(params.getStockValuePercentage() * params.getSubscriptionCount());
-        int changeTotal = (int)(params.getChangePercentage() * params.getSubscriptionCount());
-        int variationTotal = (int)(params.getVariationPercentage() * params.getSubscriptionCount());
-        int dateTotal = (int)(params.getDatePercentage() * params.getSubscriptionCount());
-        int equalCompanyTotal = (int)(params.getEqualCompanyPercentage() * companyTotal);
+        int companyTotal = (int) (params.getCompanyPercentage() * params.getSubscriptionCount());
+        int stockValueTotal = (int) (params.getStockValuePercentage() * params.getSubscriptionCount());
+        int changeTotal = (int) (params.getChangePercentage() * params.getSubscriptionCount());
+        int variationTotal = (int) (params.getVariationPercentage() * params.getSubscriptionCount());
+        int dateTotal = (int) (params.getDatePercentage() * params.getSubscriptionCount());
+        int equalCompanyTotal = (int) (params.getEqualCompanyPercentage() * companyTotal);
 
         while (subscriptions.size() < params.getSubscriptionCount()) {
             Subscription subscription = new Subscription();
@@ -162,8 +162,7 @@ public class GeneratorImpl implements Generator {
                     if (subscription.contains("company") && equalUpdate && !subscription.hasEq("company")) {
                         subscription.update("company", companyFilter);
                         equalCompanyNumber++;
-                    }
-                    else if (!subscription.contains("company") && companyNumber < companyTotal) {
+                    } else if (!subscription.contains("company") && companyNumber < companyTotal) {
                         subscription.getFilters().add(companyFilter);
                         companyNumber++;
                     }

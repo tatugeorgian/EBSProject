@@ -21,7 +21,7 @@ public class PublicationGenerationParams {
         this.maxChangePercentage = maxChangePercentage;
     }
 
-    public PublicationGenerationParams(){
+    public PublicationGenerationParams() {
 
     }
 

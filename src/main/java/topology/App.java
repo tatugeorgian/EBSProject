@@ -8,16 +8,21 @@ import org.apache.storm.topology.TopologyBuilder;
 public class App {
 
     private static final String PUBLISHER_ID = "publisher";
-    private static final String SUBSCRIBER_ID = "subscriber";
+    private static final String SUB_1_ID = "subscriber_1", SUB_2_ID = "subscriber_2", SUB_3_ID = "subscriber_3";
     private static final String BOLT_ID = "broker";
+    static final int SUB_NO = 3;
 
     public static void main(String[] args) {
         TopologyBuilder builder = new TopologyBuilder();
 
-        //builder.setSpout(PUBLISHER_ID, new Publisher(), 1);
-        builder.setSpout(SUBSCRIBER_ID, new Subscriber(), 1);
-        builder.setBolt(BOLT_ID, new Broker(), 1)
-                .shuffleGrouping(SUBSCRIBER_ID).directGrouping(SUBSCRIBER_ID, "secondary");
+        builder.setSpout(PUBLISHER_ID, new Publisher(), 1);
+        builder.setSpout(SUB_1_ID, new Subscriber("sub1"), 1);
+        builder.setSpout(SUB_2_ID, new Subscriber("sub2"), 1);
+        builder.setSpout(SUB_3_ID, new Subscriber("sub3"), 1);
+
+        builder.setBolt(BOLT_ID, new Broker(), 3)
+                .shuffleGrouping(SUB_1_ID).shuffleGrouping(SUB_2_ID).shuffleGrouping(SUB_3_ID)
+                .allGrouping(PUBLISHER_ID);
 
         // fine tuning
         Config config = new Config();
@@ -32,7 +37,7 @@ public class App {
         cluster.submitTopology("stocks_topology", config, topology);
 
         try {
-            Thread.sleep(25_000);
+            Thread.sleep(1000 * 60);
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

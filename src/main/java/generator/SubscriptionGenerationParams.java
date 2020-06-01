@@ -11,7 +11,7 @@ public class SubscriptionGenerationParams {
     private double variationPercentage = 0.5D;
     private double datePercentage = 0.5D;
     private Date endDate;
-    private int subscriptionCount = 10000;
+    private int subscriptionCount = 3000;
     private double equalCompanyPercentage = 0.5D;
 
     public SubscriptionGenerationParams(PublicationGenerationParams publicationParams, Date endDate) {

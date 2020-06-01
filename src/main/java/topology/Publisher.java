@@ -25,14 +25,25 @@ public class Publisher extends BaseRichSpout {
         collector = spoutOutputCollector;
         Generator generator = new GeneratorImpl();
         publications = generator.generatePublications(new PublicationGenerationParams());
+        publicationIndex = 0;
     }
 
     @Override
     public void nextTuple() {
-        Publication nextPublication = publications.get(publicationIndex);
-        collector.emit(new Values(nextPublication.getCompany(), nextPublication.getStockValue(), nextPublication.getChange(),
-                nextPublication.getVariation(), nextPublication.getDate()));
-        publicationIndex++;
+        if (publicationIndex == 0){
+            while(Broker.ackSubs < App.SUB_NO * Subscriber.subTotalCount * 0.99){ // 0.99 is for the margin of error for cases when tuples are missed
+                try {
+                    System.out.println("======" + Subscriber.subTotalCount);
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        Publication pub = publications.get(publicationIndex);
+        collector.emit(new Values(pub.getCompany(), pub.getStockValue(), pub.getChange(), pub.getVariation(), pub.getDate()));
+        ++publicationIndex;
         if (publicationIndex == publications.size()) {
             publicationIndex = 0;
         }
@@ -40,7 +51,6 @@ public class Publisher extends BaseRichSpout {
         try {
             Thread.sleep(1);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
