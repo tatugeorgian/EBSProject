@@ -8,7 +8,7 @@ public class Subscription {
     public int filterNumber = 5;
     private List<Filter> filters = new ArrayList<>();
 
-    public boolean contains(String fieldName) {
+    boolean contains(String fieldName) {
         for (Filter filter : filters) {
             if (filter.getFieldName().equals(fieldName)) {
                 return true;
@@ -17,7 +17,7 @@ public class Subscription {
         return false;
     }
 
-    public Filter get(String fieldName) {
+    private Filter get(String fieldName) {
         for (Filter filter : filters) {
             if (filter.getFieldName().equals(fieldName)) {
                 return filter;
@@ -26,7 +26,7 @@ public class Subscription {
         return null;
     }
 
-    public void update(String fieldName, Filter newFilter) {
+    void update(String fieldName, Filter newFilter) {
         for (int index = 0; index < filters.size(); index++) {
             if (filters.get(index).getFieldName().equals(fieldName)) {
                 filters.set(index, newFilter);
@@ -35,7 +35,7 @@ public class Subscription {
         }
     }
 
-    public boolean hasEq(String fieldName) {
+    boolean hasEq(String fieldName) {
         for (Filter filter : filters) {
             if (filter.getFieldName().equals(fieldName) &&
                     filter.getOperator() == Operator.EQ) {
@@ -45,7 +45,7 @@ public class Subscription {
         return false;
     }
 
-    public void sort() {
+    void sort() {
         int index = 0;
         final String[] fields = {"company", "stockValue", "change", "variation", "date"};
         for (String fieldName : fields) {

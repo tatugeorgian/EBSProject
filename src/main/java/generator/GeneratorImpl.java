@@ -13,7 +13,7 @@ public class GeneratorImpl implements Generator {
 
     private Random random = new Random();
 
-    private Map<Company, Double> previousStocks = new HashMap<Company, Double>();
+    private Map<Company, Double> previousStocks = new HashMap<>();
 
     @Override
     public List<Publication> generatePublications(PublicationGenerationParams params) {

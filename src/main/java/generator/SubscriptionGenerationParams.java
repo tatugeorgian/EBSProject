@@ -40,7 +40,7 @@ public class SubscriptionGenerationParams {
         }
     }
 
-    public double getCompanyPercentage() {
+    double getCompanyPercentage() {
         return companyPercentage;
     }
 
@@ -49,7 +49,7 @@ public class SubscriptionGenerationParams {
         validatePercentages();
     }
 
-    public double getStockValuePercentage() {
+    double getStockValuePercentage() {
         return stockValuePercentage;
     }
 
@@ -58,7 +58,7 @@ public class SubscriptionGenerationParams {
         validatePercentages();
     }
 
-    public double getChangePercentage() {
+    double getChangePercentage() {
         return changePercentage;
     }
 
@@ -67,7 +67,7 @@ public class SubscriptionGenerationParams {
         validatePercentages();
     }
 
-    public double getVariationPercentage() {
+    double getVariationPercentage() {
         return variationPercentage;
     }
 
@@ -76,7 +76,7 @@ public class SubscriptionGenerationParams {
         validatePercentages();
     }
 
-    public double getDatePercentage() {
+    double getDatePercentage() {
         return datePercentage;
     }
 
@@ -85,7 +85,7 @@ public class SubscriptionGenerationParams {
         validatePercentages();
     }
 
-    public PublicationGenerationParams getPublicationParams() {
+    PublicationGenerationParams getPublicationParams() {
         return publicationParams;
     }
 
@@ -93,7 +93,7 @@ public class SubscriptionGenerationParams {
         this.publicationParams = publicationParams;
     }
 
-    public Date getEndDate() {
+    Date getEndDate() {
         return endDate;
     }
 
@@ -101,7 +101,7 @@ public class SubscriptionGenerationParams {
         this.endDate = endDate;
     }
 
-    public int getSubscriptionCount() {
+    int getSubscriptionCount() {
         return subscriptionCount;
     }
 
@@ -109,7 +109,7 @@ public class SubscriptionGenerationParams {
         this.subscriptionCount = subscriptionCount;
     }
 
-    public double getEqualCompanyPercentage() {
+    double getEqualCompanyPercentage() {
         return equalCompanyPercentage;
     }
 

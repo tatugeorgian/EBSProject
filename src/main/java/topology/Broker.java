@@ -12,11 +12,10 @@ import java.util.*;
 
 public class Broker extends BaseRichBolt {
 
+    static int ackSubs = 0;
     private OutputCollector collector;
     private Map<String, Set<List<Filter>>> subscriptions = new HashMap<>();
     private int _thisTaskId, ackPubs = 0;
-    static int ackSubs = 0;
-
 
     @Override
     public void prepare(Map map, TopologyContext topologyContext, OutputCollector outputCollector) {
@@ -40,7 +39,7 @@ public class Broker extends BaseRichBolt {
             if (sub != null && id != null) {
                 Set<List<Filter>> temp_sub_set;
                 if (!subscriptions.containsKey(id)) {
-                    temp_sub_set = new HashSet<List<Filter>>();
+                    temp_sub_set = new HashSet<>();
                     temp_sub_set.add(sub);
                 } else {
                     temp_sub_set = subscriptions.get(id);
@@ -49,8 +48,7 @@ public class Broker extends BaseRichBolt {
 
                 subscriptions.put(id, temp_sub_set);
             }
-        }
-        else if (tuple.getFields().contains("company")){
+        } else if (tuple.getFields().contains("company")) {
             ++ackPubs;
         }
 

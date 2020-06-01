@@ -16,8 +16,8 @@ import java.util.Map;
 
 public class Publisher extends BaseRichSpout {
 
+    private List<Publication> publications;
     private SpoutOutputCollector collector;
-    public List<Publication> publications;
     private int publicationIndex;
 
     @Override
@@ -30,8 +30,8 @@ public class Publisher extends BaseRichSpout {
 
     @Override
     public void nextTuple() {
-        if (publicationIndex == 0){
-            while(Broker.ackSubs < App.SUB_NO * Subscriber.subTotalCount * 0.99){ // 0.99 is for the margin of error for cases when tuples are missed
+        if (publicationIndex == 0) {
+            while (Broker.ackSubs < App.SUB_NO * Subscriber.subTotalCount * 0.99) { // 0.99 is for the margin of error for cases when tuples are missed
                 try {
                     System.out.println("======" + Subscriber.subTotalCount);
                     Thread.sleep(1000);

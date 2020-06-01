@@ -1,12 +1,13 @@
 package generator;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class PublicationGenerationParams {
 
     private double minStockValue = 0D;
     private double maxStockValue = 1000D;
-    private Date startingDate = new Date(100, 0, 1); // 1 jan 2000
+    private Date startingDate;
     private int daysBetween = 1;
     private int publicationCount = 10000;
     private double maxChangePercentage = 0.1D;
@@ -22,30 +23,32 @@ public class PublicationGenerationParams {
     }
 
     public PublicationGenerationParams() {
-
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2000, Calendar.JANUARY, 1);
+        startingDate = new Date(calendar.getTimeInMillis()); // 1 jan 2000
     }
 
-    public double getMinStockValue() {
+    double getMinStockValue() {
         return minStockValue;
     }
 
-    public double getMaxStockValue() {
+    double getMaxStockValue() {
         return maxStockValue;
     }
 
-    public Date getStartingDate() {
+    Date getStartingDate() {
         return startingDate;
     }
 
-    public int getDaysBetween() {
+    int getDaysBetween() {
         return daysBetween;
     }
 
-    public int getPublicationCount() {
+    int getPublicationCount() {
         return publicationCount;
     }
 
-    public double getMaxChangePercentage() {
+    double getMaxChangePercentage() {
         return maxChangePercentage;
     }
 }

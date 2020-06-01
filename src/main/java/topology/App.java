@@ -7,10 +7,10 @@ import org.apache.storm.topology.TopologyBuilder;
 
 public class App {
 
+    static final int SUB_NO = 3;
     private static final String PUBLISHER_ID = "publisher";
     private static final String SUB_1_ID = "subscriber_1", SUB_2_ID = "subscriber_2", SUB_3_ID = "subscriber_3";
     private static final String BOLT_ID = "broker";
-    static final int SUB_NO = 3;
 
     public static void main(String[] args) {
         TopologyBuilder builder = new TopologyBuilder();
@@ -39,7 +39,6 @@ public class App {
         try {
             Thread.sleep(1000 * 60);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         cluster.killTopology("stocks_topology");

@@ -1,7 +1,6 @@
 package utils;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -9,7 +8,7 @@ import java.util.logging.SimpleFormatter;
 public class TopologyLogger {
     private static Logger logger;
 
-    static{
+    static {
         logger = Logger.getLogger("TupleLogger");
         FileHandler fh;
 
@@ -25,7 +24,7 @@ public class TopologyLogger {
         }
     }
 
-    public static void log(String entry){
+    public static void log(String entry) {
         logger.info(entry);
     }
 }

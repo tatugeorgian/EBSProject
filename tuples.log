@@ -1,33 +1,33 @@
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: On broker task:2   sub2   963
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: On broker task:2   sub3   1027
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: On broker task:2   sub1   1009
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: Total global subs: 8999
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: On broker task:2   Total global pubs: 26457
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: On broker task:2   sub2   1030
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: On broker task:2   sub3   1013
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: On broker task:2   sub1   988
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: Total global subs: 9000
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: On broker task:2   Total global pubs: 25832
 
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: On broker task:3   sub2   1023
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: On broker task:3   sub3   955
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: On broker task:3   sub1   1007
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: Total global subs: 8999
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: On broker task:3   Total global pubs: 26461
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: On broker task:3   sub2   955
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: On broker task:3   sub3   989
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: On broker task:3   sub1   1021
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: Total global subs: 9000
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: On broker task:3   Total global pubs: 25835
 
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: On broker task:4   sub2   1014
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: On broker task:4   sub3   1018
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: On broker task:4   sub1   984
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: Total global subs: 8999
-Jun 01, 2020 12:34:15 PM utils.TopologyLogger log
-INFO: On broker task:4   Total global pubs: 26463
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: On broker task:4   sub2   1015
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: On broker task:4   sub3   998
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: On broker task:4   sub1   991
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: Total global subs: 9000
+Jun 01, 2020 2:45:55 PM utils.TopologyLogger log
+INFO: On broker task:4   Total global pubs: 25837
 

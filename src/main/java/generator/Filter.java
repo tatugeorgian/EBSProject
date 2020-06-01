@@ -6,21 +6,19 @@ public class Filter {
     private Object value;
     private String fieldName;
 
-    public Filter(Operator operator, Object value, String fieldName) {
+    Filter(Operator operator, Object value, String fieldName) {
         this.operator = operator;
         this.value = value;
         this.fieldName = fieldName;
     }
 
-    public Operator getOperator() {
+    Operator getOperator() {
         return operator;
     }
 
-    public Object getValue() {
-        return value;
-    }
+    public Object getValue() { return value; }
 
-    public String getFieldName() {
+    String getFieldName() {
         return fieldName;
     }
 

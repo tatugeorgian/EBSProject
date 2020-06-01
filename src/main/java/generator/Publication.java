@@ -4,16 +4,15 @@ import java.util.Date;
 
 public class Publication {
 
+    static double stockMin;
+    static double stockMax;
     private Company company;
     private double stockValue;
     private double change;
     private double variation;
     private Date date;
 
-    public static double stockMin;
-    public static double stockMax;
-
-    public Publication(Company company, double stockValue, double change, Date date) {
+    Publication(Company company, double stockValue, double change, Date date) {
         this.company = company;
 
         if (stockValue > stockMax) {
