@@ -1,8 +1,9 @@
 package generator;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Publication {
+public class Publication implements Serializable {
 
     static double stockMin;
     static double stockMax;

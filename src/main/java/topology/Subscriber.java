@@ -21,13 +21,10 @@ public class Subscriber extends BaseRichSpout {
     private int subscriptionsIndex;
     private String _id;
 
-    Subscriber(String id) {
-        _id = id;
-    }
-
     @Override
     public void open(Map map, TopologyContext topologyContext, SpoutOutputCollector spoutOutputCollector) {
         collector = spoutOutputCollector;
+        _id = "terminal_" + topologyContext.getThisComponentId();
         subscriptionsIndex = 0;
 
         Generator generator = new GeneratorImpl();
