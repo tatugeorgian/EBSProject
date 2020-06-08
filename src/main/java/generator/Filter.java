@@ -12,13 +12,13 @@ public class Filter {
         this.fieldName = fieldName;
     }
 
-    Operator getOperator() {
+    public Operator getOperator() {
         return operator;
     }
 
     public Object getValue() { return value; }
 
-    String getFieldName() {
+    public String getFieldName() {
         return fieldName;
     }
 
