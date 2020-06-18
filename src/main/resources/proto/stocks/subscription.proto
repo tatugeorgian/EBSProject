@@ -1,0 +1,36 @@
+syntax = "proto3";
+package stocks;
+
+option java_package = "messages";
+option java_outer_classname = "SubscriptionProto";
+import "company.proto";
+
+message Subscription {
+
+    string subscriber_id = 1;
+
+    message Filter {
+        string field_name = 1;
+
+        enum Operator {
+            GT = 0;
+            GTEQ = 1;
+            L = 2;
+            LEQ = 3;
+            EQ = 4;
+            NEQ = 5;
+        }
+
+        Operator operator = 2;
+
+        oneof value {
+            Company company = 3;
+            double stock_value = 4;
+            double change = 5;
+            double variation = 6;
+            int64 date = 7;
+        }
+    }
+
+    repeated Filter filters = 2;
+}

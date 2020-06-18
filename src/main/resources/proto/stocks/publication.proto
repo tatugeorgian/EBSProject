@@ -1,0 +1,16 @@
+syntax = "proto3";
+package stocks;
+
+option java_package = "messages";
+option java_outer_classname = "PublicationProto";
+
+import "company.proto";
+
+message Publication {
+
+    Company company = 1;
+    double stock_value = 2;
+    double change = 3;
+    double variation = 4;
+    int64 date = 5;
+}

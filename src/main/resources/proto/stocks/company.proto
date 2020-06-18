@@ -1,0 +1,13 @@
+syntax = "proto3";
+package stocks;
+
+option java_package = "messages";
+option java_outer_classname = "CompanyProto";
+
+enum Company {
+    GOOGLE = 0;
+    APPLE = 1;
+    MICROSOFT = 2;
+    IBM = 3;
+    ORACLE = 4;
+}
