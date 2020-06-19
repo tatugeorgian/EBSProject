@@ -1,6 +1,5 @@
 package topology;
 
-import generator.Publication;
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.OutputFieldsDeclarer;
@@ -8,6 +7,7 @@ import org.apache.storm.topology.base.BaseRichBolt;
 import org.apache.storm.tuple.Tuple;
 import utils.TopologyLogger;
 
+import java.util.List;
 import java.util.Map;
 
 public class TerminalSub extends BaseRichBolt {
@@ -25,9 +25,9 @@ public class TerminalSub extends BaseRichBolt {
     @Override
     public void execute(Tuple input) {
         if (input.getFields().contains("consumer_pub")){
-            Publication pub = (Publication) input.getValueByField("consumer_pub");
+            List<Byte> bytes = (List<Byte>)input.getValueByField("consumer_pub");
 
-            if (pub != null){
+            if (bytes != null){
                 ++pub_no;
             }
         }

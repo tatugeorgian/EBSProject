@@ -17,4 +17,30 @@ public enum Operator {
     public String getOperatorString() {
         return operatorString;
     }
+
+    public String getOperatorName() {
+        switch (operatorString) {
+            case ">": {
+                return "GT";
+            }
+            case ">=": {
+                return "GTEQ";
+            }
+            case "<": {
+                return "L";
+            }
+            case "<=": {
+                return "LEQ";
+            }
+            case "=": {
+                return "EQ";
+            }
+            case "!=": {
+                return "NEQ";
+            }
+            default: {
+                return null;
+            }
+        }
+    }
 }

@@ -6,7 +6,7 @@ public class Filter {
     private Object value;
     private String fieldName;
 
-    Filter(Operator operator, Object value, String fieldName) {
+    public Filter(Operator operator, Object value, String fieldName) {
         this.operator = operator;
         this.value = value;
         this.fieldName = fieldName;

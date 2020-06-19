@@ -2,6 +2,7 @@ package topology;
 
 import generator.Filter;
 import generator.Publication;
+import javafx.util.Pair;
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.OutputFieldsDeclarer;
@@ -33,13 +34,14 @@ public class Broker extends BaseRichBolt {
     @Override
     public void execute(Tuple tuple) {
 
-        if (tuple.getFields().contains("filters")) {
+        if (tuple.getFields().contains("subscription")) {
             synchronized (this) {
                 ++ackSubs;
             }
 
-            List<Filter> sub = (List<Filter>) tuple.getValueByField("filters");
-            String id = (String) tuple.getValueByField("terminal_id");
+            Pair<String, List<Filter>> deserializedData = ProtoSerializer.deserializeSubscription((List<Byte>)tuple.getValueByField("subscription"));
+            List<Filter> sub = deserializedData.getValue();
+            String id = deserializedData.getKey();
 
             if (sub != null && id != null) {
                 Set<List<Filter>> temp_sub_set;
@@ -55,7 +57,7 @@ public class Broker extends BaseRichBolt {
             }
         } else if (tuple.getFields().contains("publication")) {
             ++ackPubs;
-            Publication pub = (Publication) tuple.getValueByField("publication");
+            Publication pub = ProtoSerializer.deserializePublication((List<Byte>)tuple.getValueByField("publication"));
 
             for (String key : subscriptions.keySet()){
                 matches.put(key, false);
@@ -70,7 +72,7 @@ public class Broker extends BaseRichBolt {
 
                 for (Map.Entry<String, Boolean> kv : matches.entrySet()){
                     if (kv.getValue()){
-                        collector.emit(kv.getKey(), new Values(pub));
+                        collector.emit(kv.getKey(), new Values(ProtoSerializer.serializePublication(pub)));
                     }
                 }
             }

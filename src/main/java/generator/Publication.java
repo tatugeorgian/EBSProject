@@ -13,7 +13,7 @@ public class Publication implements Serializable {
     private double variation;
     private Date date;
 
-    Publication(Company company, double stockValue, double change, Date date) {
+    public Publication(Company company, double stockValue, double change, Date date) {
         this.company = company;
 
         if (stockValue > stockMax) {

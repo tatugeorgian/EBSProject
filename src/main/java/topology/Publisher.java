@@ -4,6 +4,8 @@ import generator.Generator;
 import generator.GeneratorImpl;
 import generator.Publication;
 import generator.PublicationGenerationParams;
+import messages.CompanyProto;
+import messages.PublicationProto;
 import org.apache.storm.spout.SpoutOutputCollector;
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.OutputFieldsDeclarer;
@@ -12,6 +14,8 @@ import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
 import utils.TopologyLogger;
 
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -40,7 +44,8 @@ public class Publisher extends BaseRichSpout {
                 }
             }
         }
-        collector.emit(new Values(publications.get(publicationIndex++)));
+
+        collector.emit(new Values(ProtoSerializer.serializePublication(publications.get(publicationIndex++))));
 
         if (publicationIndex == publications.size()) {
             publicationIndex = 0;
