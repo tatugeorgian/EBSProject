@@ -2,6 +2,7 @@ package generator;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 
 public class Publication implements Serializable {
 
@@ -12,6 +13,7 @@ public class Publication implements Serializable {
     private double change;
     private double variation;
     private Date date;
+    private UUID uuid;
 
     public Publication(Company company, double stockValue, double change, Date date) {
         this.company = company;
@@ -27,6 +29,14 @@ public class Publication implements Serializable {
         this.change = change;
         this.variation = Math.abs(this.change / this.stockValue);
         this.date = date;
+    }
+
+    public UUID getUuid() {
+        return this.uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
 
     @Override

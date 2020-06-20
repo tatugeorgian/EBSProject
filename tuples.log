@@ -1,39 +1,39 @@
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On broker task:2   terminal_subscriber_1   1017
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On broker task:2   terminal_subscriber_3   1022
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On broker task:2   terminal_subscriber_2   967
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: Total global subs: 9000
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On broker task:2   Total global pubs: 25566
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On broker task:2   terminal_subscriber_1   968
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On broker task:2   terminal_subscriber_3   1011
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On broker task:2   terminal_subscriber_2   1024
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: Total global subs: 8999
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On broker task:2   Total global pubs: 39154
 
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On broker task:3   terminal_subscriber_1   979
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On broker task:3   terminal_subscriber_3   957
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On broker task:3   terminal_subscriber_2   1044
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: Total global subs: 9000
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On broker task:3   Total global pubs: 25572
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On broker task:3   terminal_subscriber_1   1003
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On broker task:3   terminal_subscriber_3   981
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On broker task:3   terminal_subscriber_2   956
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: Total global subs: 8999
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On broker task:3   Total global pubs: 39154
 
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On terminal node: terminal_subscriber_1, received pubs: 76711
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On terminal node: terminal_subscriber_3, received pubs: 76710
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On terminal node: terminal_subscriber_2, received pubs: 76711
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On broker task:4   terminal_subscriber_1   1004
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On broker task:4   terminal_subscriber_3   1021
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On broker task:4   terminal_subscriber_2   989
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: Total global subs: 9000
-Jun 01, 2020 4:55:44 PM utils.TopologyLogger log
-INFO: On broker task:4   Total global pubs: 25574
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On terminal node: terminal_subscriber_1, received pubs: 117462
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On terminal node: terminal_subscriber_3, received pubs: 117462
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On terminal node: terminal_subscriber_2, received pubs: 117462
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On broker task:4   terminal_subscriber_1   1029
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On broker task:4   terminal_subscriber_3   1008
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On broker task:4   terminal_subscriber_2   1020
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: Total global subs: 8999
+Jun 19, 2020 8:50:42 PM utils.TopologyLogger log
+INFO: On broker task:4   Total global pubs: 39154
 

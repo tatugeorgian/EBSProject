@@ -14,10 +14,12 @@ import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
 import utils.TopologyLogger;
 
-import java.util.Arrays;
-import java.util.Date;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 public class Publisher extends BaseRichSpout {
 
@@ -44,8 +46,16 @@ public class Publisher extends BaseRichSpout {
                 }
             }
         }
-
-        collector.emit(new Values(ProtoSerializer.serializePublication(publications.get(publicationIndex++))));
+        Publication publication = publications.get(publicationIndex++);
+        publication.setUuid(UUID.randomUUID());
+        collector.emit(new Values(publication));
+        try {
+            BufferedWriter out = new BufferedWriter(new FileWriter("./sendingTimes.txt", true));
+            out.write(String.valueOf(System.currentTimeMillis()) + ' ' + publication.getUuid() + '\n');
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         if (publicationIndex == publications.size()) {
             publicationIndex = 0;
